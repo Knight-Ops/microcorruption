@@ -6,6 +6,10 @@ The static analysis approach to this problem starts in the `init` function. Ther
 
 The dynamic approach, which is arguably easier in this situation is to let the program do the work for you. In order to dump the decrypted code, I just placed a breakpoint at the call into `0x2400` and then dumped all the memory and analyzed it statically from there. This works because it is only a single layer of polymorphism in this binary. Once you have the decrypted code, you can analyze it as usual.
 
-Once you have the decrypted code, this challenge is simple. In the code decrypted at `0x2400` you can ignore most of the code except for roughly 8 lines of assembly ![](images/compare.PNG) This is a call to `gets` and then a comparison to 0xb34c, which due to little endianness, means we need to input `4cb3` to complete the challenge.
+Once you have the decrypted code, this challenge is simple. In the code decrypted at `0x2400` you can ignore most of the code except for roughly 8 lines of assembly 
+
+![](images/compare.PNG) 
+
+This is a call to `gets` and then a comparison to 0xb34c, which due to little endianness, means we need to input `4cb3` to complete the challenge.
 
 The solution for this challenge (hex encoded) is `4cb3`.
