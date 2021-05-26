@@ -38,3 +38,7 @@ call INT
 or `30127f00b012fc45`. Then we just set up our stack so that we return to our new buffer at BB (0x4242) and we end up with our completely absurd payload of `AAAAAAAAAAAAAAAAATFBBBBBB`.
 
 The solution for this challenge is `AAAAAAAAAAAAAAAAATFBBBBBB` followed by `30127f00b012fc45`
+
+# Aside
+
+This challenge also included `JHS` instructions that were lifted backwards during LLIL lifting, as noted [here](https://github.com/joshwatson/binaryninja-msp430/issues/11). So I went ahead and fixed that issue as well and added it to my [pull request](https://github.com/joshwatson/binaryninja-msp430/pull/13).
